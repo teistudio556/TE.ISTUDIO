@@ -1,0 +1,347 @@
+/*
+  Editor mode styles.
+  All editor UI is hidden by default; only active when .editor-active is on <body>.
+  Modals use hardcoded dark values so they work regardless of site theme.
+*/
+
+.editor-key { display: none; }
+
+/* ── Active editor indicator ── */
+body.editor-active .site-nav {
+  border-bottom-color: var(--accent) !important;
+}
+
+.editor-badge {
+  display: none;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  background: rgba(139, 115, 85, 0.08);
+}
+body.editor-active .editor-badge { display: inline-block; }
+
+/* ── Inline-editable text ── */
+body.editor-active .editable-text {
+  cursor: text;
+  border-radius: 2px;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+body.editor-active .editable-text:hover {
+  background: rgba(139, 115, 85, 0.07);
+  box-shadow: inset 0 0 0 1px rgba(139, 115, 85, 0.3);
+}
+body.editor-active .editable-text:focus {
+  outline: none;
+  background: rgba(139, 115, 85, 0.1);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+/* ── Modal backdrop ── */
+.editor-modal {
+  position: fixed; inset: 0;
+  background: rgba(10, 8, 6, 0.82);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.editor-modal.is-open { opacity: 1; pointer-events: auto; }
+
+/* ── Modal card — dark theme ── */
+.editor-modal__card {
+  background: var(--editor-surface);
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  padding: var(--space-4);
+  width: min(460px, calc(100vw - 2rem));
+  display: flex; flex-direction: column; gap: var(--space-3);
+  transform: translateY(12px);
+  transition: transform 0.25s var(--ease-out);
+}
+.editor-modal.is-open .editor-modal__card { transform: translateY(0); }
+.editor-modal__card--wide { width: min(640px, calc(100vw - 2rem)); }
+
+.editor-modal__header {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.editor-modal__title {
+  font-size: 0.7rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--editor-ink-dim);
+}
+.editor-modal__close {
+  background: transparent; border: none;
+  color: var(--editor-ink-dim); font-size: 1.2rem;
+  cursor: pointer; padding: 0.2rem 0.4rem; line-height: 1;
+  transition: color 0.2s ease;
+}
+.editor-modal__close:hover { color: var(--accent); }
+
+/* ── Form fields ── */
+.editor-form { display: flex; flex-direction: column; gap: var(--space-2); }
+.editor-field { display: flex; flex-direction: column; gap: 0.4rem; }
+.editor-field label {
+  font-size: 0.68rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--editor-ink-dim);
+}
+.editor-field input,
+.editor-field textarea,
+.editor-field select {
+  background: var(--editor-surface-raised);
+  border: 1px solid var(--editor-line);
+  border-radius: 2px;
+  color: var(--editor-ink);
+  font-family: var(--font-body); font-size: 0.9rem;
+  padding: 0.6rem 0.8rem;
+  transition: border-color 0.2s ease; outline: none; width: 100%;
+}
+.editor-field input:focus,
+.editor-field textarea:focus,
+.editor-field select:focus { border-color: var(--accent); }
+.editor-field textarea { resize: vertical; min-height: 80px; }
+.editor-field select {
+  appearance: none; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239A9490' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 0.8rem center; padding-right: 2rem;
+}
+.editor-field__row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+
+.editor-error { font-size: 0.72rem; color: #e05a5a; display: none; }
+.editor-error.is-visible { display: block; }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+.editor-modal__card.shake { animation: shake 0.35s ease; }
+
+/* ── Buttons ── */
+.editor-btn {
+  font-size: 0.78rem; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.75rem 1.8rem;
+  border-radius: 2px; cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.editor-btn--primary {
+  background: var(--accent); color: var(--bg); border: 1px solid var(--accent);
+}
+.editor-btn--primary:hover { background: var(--accent-dim); border-color: var(--accent-dim); }
+.editor-btn--ghost {
+  background: transparent; color: var(--editor-ink-dim); border: 1px solid var(--editor-line);
+}
+.editor-btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.editor-btn-row {
+  display: flex; gap: var(--space-2); justify-content: flex-end; margin-top: var(--space-1);
+}
+
+/* ── Upload dropzone ── */
+.upload-dropzone {
+  border: 1px dashed var(--accent); border-radius: 3px;
+  padding: var(--space-4); text-align: center; cursor: pointer;
+  transition: background 0.2s ease; display: flex;
+  flex-direction: column; align-items: center; gap: var(--space-1);
+}
+.upload-dropzone:hover, .upload-dropzone.drag-over {
+  background: rgba(139, 115, 85, 0.06); border-style: solid;
+}
+.upload-dropzone__icon { font-size: 1.6rem; color: var(--accent); line-height: 1; }
+.upload-dropzone__label { font-size: 0.72rem; letter-spacing: 0.06em; color: var(--editor-ink-dim); }
+.upload-dropzone__sub { font-size: 0.65rem; color: #6B6560; }
+.upload-dropzone__filename { font-size: 0.72rem; color: var(--accent); display: none; }
+.upload-dropzone.has-file .upload-dropzone__filename { display: block; }
+.upload-dropzone.has-file .upload-dropzone__label,
+.upload-dropzone.has-file .upload-dropzone__sub { display: none; }
+
+/* ── Add content button ── */
+.add-content-btn {
+  display: none; align-items: center; gap: 0.5rem;
+  font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.55rem 1.2rem; background: transparent;
+  border: 1px dashed var(--accent); border-radius: 2px;
+  color: var(--accent); cursor: pointer; margin-bottom: var(--space-3);
+  transition: background 0.2s ease;
+}
+.add-content-btn:hover { background: rgba(139, 115, 85, 0.08); }
+body.editor-active .add-content-btn { display: inline-flex; }
+
+/* ── Card editor controls ── */
+.project-card, .service-card { position: relative; }
+.card-editor-controls {
+  position: absolute; top: var(--space-2); right: var(--space-2);
+  display: none; gap: 0.4rem; z-index: 5;
+}
+body.editor-active .project-card .card-editor-controls,
+body.editor-active .service-card .card-editor-controls { display: flex; }
+
+.card-ctrl-btn {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 2px; border: 1px solid var(--line);
+  background: var(--bg-raised); color: var(--ink-dim);
+  cursor: pointer; font-size: 0.75rem;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.card-ctrl-btn:hover { background: var(--surface); }
+.card-ctrl-btn--edit:hover { border-color: var(--accent); color: var(--accent); }
+.card-ctrl-btn--delete:hover { border-color: #e05a5a; color: #e05a5a; }
+
+/* ── Card thumb images ── */
+.project-card__thumb {
+  position: relative; overflow: hidden;
+}
+.project-card__thumb img.thumb-media {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+}
+.project-card.has-media .project-card__thumb::before,
+.project-card.has-media .project-card__thumb::after { display: none; }
+
+/* ── Thumb upload overlay ── */
+.thumb-upload {
+  position: absolute; inset: 0; z-index: 4;
+  display: none; flex-direction: column;
+  align-items: center; justify-content: center; gap: 0.6rem;
+  background: rgba(26, 25, 23, 0.55);
+  cursor: pointer; text-align: center; padding: var(--space-2);
+}
+body.editor-active .project-card__thumb:hover .thumb-upload { display: flex; }
+.thumb-upload__pick { font-size: 0.72rem; letter-spacing: 0.06em; color: #F9F7F2; }
+.thumb-upload__remove {
+  display: none; font-size: 0.65rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: rgba(255,255,255,0.75);
+  background: transparent; border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 2px; padding: 0.3rem 0.7rem; cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.thumb-upload__remove:hover { color: #e05a5a; border-color: #e05a5a; }
+.project-card.has-media .thumb-upload__remove { display: inline-block; }
+
+/* ── Editable tags ── */
+body.editor-active .project-card__tags .tag[contenteditable="true"] { cursor: text; min-width: 1.5rem; }
+body.editor-active .project-card__tags .tag[contenteditable="true"]:hover { border-color: var(--accent); }
+body.editor-active .project-card__tags .tag[contenteditable="true"]:focus {
+  outline: none; border-color: var(--accent); color: var(--accent);
+}
+.tag-add {
+  cursor: pointer; background: transparent;
+  border-style: dashed !important; border-color: var(--accent) !important;
+  color: var(--accent) !important; font-weight: 600; line-height: 1;
+}
+.tag-add:hover { background: rgba(139, 115, 85, 0.08); }
+
+/* ── Testimonial editor controls ── */
+.testimonial-card { position: relative; }
+.testimonial-editor-controls {
+  position: absolute; top: var(--space-2); right: var(--space-2);
+  display: none; gap: 0.4rem;
+}
+body.editor-active .testimonial-card .testimonial-editor-controls { display: flex; }
+
+/* ── Hero image controls ── */
+.hero-image-controls {
+  position: absolute; bottom: var(--space-3); right: var(--space-3); z-index: 10;
+  display: none; gap: 0.5rem; pointer-events: none;
+}
+body.editor-active .site-hero .hero-image-controls {
+  display: flex; pointer-events: auto;
+}
+.hero-ctrl-btn {
+  font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.5rem 1.1rem; background: rgba(0,0,0,0.52); color: #FFF;
+  border: 1px solid rgba(255,255,255,0.45); border-radius: 2px; cursor: pointer;
+  backdrop-filter: blur(4px); transition: background 0.2s ease;
+}
+.hero-ctrl-btn:hover { background: rgba(0,0,0,0.75); }
+.hero-ctrl-btn--danger:hover { background: rgba(180,30,30,0.72); border-color: rgba(255,100,100,0.6); }
+
+/* ── Home about photo block ── */
+body.editor-active #home-about-photo-block { cursor: pointer; }
+body.editor-active #home-about-photo-block::after {
+  content: '⬆ Upload Photo';
+  position: absolute; inset: 0;
+  display: block; text-align: center;
+  padding-top: calc(50% - 0.6rem);
+  font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #F9F7F2; background: rgba(26,25,23,0.45);
+  opacity: 0; transition: opacity 0.2s ease; pointer-events: none;
+}
+body.editor-active #home-about-photo-block:hover::after { opacity: 1; }
+
+/* ── About photo upload ── */
+body.editor-active .about-photo { cursor: pointer; }
+body.editor-active .about-photo::after {
+  content: '⬆ Change Photo';
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #F9F7F2; background: rgba(26,25,23,0.45);
+  opacity: 0; transition: opacity 0.2s ease;
+}
+body.editor-active .about-photo:hover::after { opacity: 1; }
+
+/* ── Logout button ── */
+.editor-logout {
+  display: none; font-size: 0.72rem; letter-spacing: 0.08em;
+  color: var(--ink-dim); background: transparent;
+  border: 1px solid var(--line); border-radius: 2px;
+  padding: 0.35rem 0.7rem; cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.editor-logout:hover { color: #e05a5a; border-color: #e05a5a; }
+body.editor-active .editor-logout { display: inline-block; }
+
+/* ── Project detail modal ── */
+.detail-modal__card {
+  display: flex; flex-direction: column;
+  padding: 0; overflow: hidden;
+  max-height: 90vh; width: min(760px, calc(100vw - 2rem));
+}
+.detail-modal__preview {
+  width: 100%; aspect-ratio: 4/3;
+  background: var(--surface); position: relative;
+  overflow: hidden; flex-shrink: 0;
+  min-height: 200px;
+}
+.detail-modal__img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.detail-modal__body {
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  overflow-y: auto; display: flex; flex-direction: column; gap: var(--space-2);
+  background: var(--editor-surface);
+}
+.detail-modal__header {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: var(--space-2);
+}
+.detail-modal__meta { font-size: 0.7rem; color: var(--editor-ink-dim); margin-bottom: 0.3rem; }
+.detail-modal__title {
+  font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500; color: var(--editor-ink); margin: 0;
+}
+.detail-modal__desc {
+  font-size: 0.95rem; color: var(--editor-ink-dim); line-height: 1.7;
+  overflow-wrap: break-word; word-break: break-word;
+  max-height: 8rem; overflow-y: auto;
+}
+.detail-modal__tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.detail-modal__tags .tag { border-color: var(--editor-line); color: var(--editor-ink-dim); }
+
+/* ── In editor mode, WhatsApp btn click changes number ── */
+body.editor-active [data-whatsapp-btn] {
+  cursor: cell;
+}
+body.editor-active [data-whatsapp-btn]::after {
+  content: '✎';
+  position: absolute;
+  top: -4px; right: -4px;
+  width: 18px; height: 18px;
+  background: var(--accent); color: white;
+  font-size: 10px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+[data-whatsapp-btn] { position: relative; }

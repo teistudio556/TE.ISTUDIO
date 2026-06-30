@@ -1,0 +1,75 @@
+/*
+  TEI Studio — Design Tokens
+  ---------------------------
+  Direction: a warm, editorial interior design aesthetic.
+  Light cream backgrounds, rich dark text, warm brown accents.
+  Elegant serif display font (Cormorant Garant) for headlines.
+*/
+
+:root {
+  /* Site palette */
+  --accent:     #8B7355;    /* warm brown — primary accent */
+  --accent-dim: #6B5840;    /* darker brown for hover states */
+  --bg:         #F9F7F2;    /* warm cream — main background */
+  --bg-raised:  #FFFFFF;    /* white — cards, surfaces */
+  --surface:    #F0EDE7;    /* slightly darker cream — alt sections */
+  --line:       #DDD8D0;    /* warm gray — borders, dividers */
+  --ink:        #1A1917;    /* near-black warm — primary text */
+  --ink-dim:    #6B6560;    /* medium warm gray — secondary text */
+  --ink-faint:  #A09B96;    /* light warm gray — labels, meta */
+
+  /* Editor UI — always dark regardless of site theme */
+  --editor-surface:       #1C1917;
+  --editor-surface-raised: #252320;
+  --editor-line:          #3A3632;
+  --editor-ink:           #F5F0EA;
+  --editor-ink-dim:       #9A9490;
+
+  /* Typography */
+  --font-display: 'Cormorant Garant', Georgia, serif;
+  --font-body:    'Inter', -apple-system, sans-serif;
+
+  /* Spacing */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 7rem;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+p { margin: 0; color: var(--ink-dim); line-height: 1.65; }
+
+a { color: var(--ink); text-decoration: none; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

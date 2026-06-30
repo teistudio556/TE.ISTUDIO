@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEI Studio — Interior Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <a href="index.html" class="site-nav__brand">
+      <span class="site-nav__logo-img">te.istudio</span>
+    </a>
+    <ul class="site-nav__links">
+      <li><a href="index.html" class="is-active">Home</a></li>
+      <li><a href="about/">About</a></li>
+      <li><a href="portfolio/">Portfolio</a></li>
+      <li><a href="services/">Services</a></li>
+      <li><a href="contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="site-hero">
+    <div class="site-hero__bg" id="hero-bg"></div>
+    <div class="site-hero__overlay"></div>
+    <!-- Hero image controls — visible only in editor mode -->
+    <div class="hero-image-controls" id="hero-image-controls">
+      <input type="file" id="hero-file-input" accept=".png,.jpg,.jpeg,.webp" hidden>
+      <button type="button" class="hero-ctrl-btn" id="hero-upload-btn">⬆ Upload Image</button>
+      <button type="button" class="hero-ctrl-btn hero-ctrl-btn--danger" id="hero-remove-btn">× Remove</button>
+    </div>
+    <div class="site-hero__content">
+      <span class="site-hero__eyebrow" data-edit-key="hero-eyebrow">INTERIOR DESIGN STUDIO — EST. 2024</span>
+      <h1 class="site-hero__title" data-edit-key="hero-title">Spaces that feel<br>like home.</h1>
+      <p class="site-hero__sub" data-edit-key="hero-sub">We design residential and commercial interiors that feel grounded, generous and personal — guided by natural light, tactile materials and a restrained palette.</p>
+      <div class="site-hero__actions">
+        <a href="portfolio/" class="btn btn--primary">View Portfolio ↗</a>
+        <a href="contact/" class="btn btn--outline">Start a Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SNIPPET -->
+  <section class="section">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1100px;">
+      <div>
+        <span class="section__eyebrow" data-edit-key="about-eyebrow">Our Philosophy</span>
+        <h2 class="section__title" data-edit-key="about-title">Design that begins with listening.</h2>
+        <p class="section__sub" data-edit-key="about-sub">Every project starts with understanding how you live. We translate your lifestyle, preferences, and aspirations into spaces that are beautiful, functional, and unmistakably yours.</p>
+        <br>
+        <a href="about/" class="btn btn--accent-outline" style="margin-top:1rem;">Learn About Us →</a>
+      </div>
+      <div id="home-about-photo-block" style="width:100%;aspect-ratio:4/3;background:var(--surface);overflow:hidden;position:relative;">
+        <img id="home-about-photo-img" src="" alt="Studio" style="width:100%;height:100%;object-fit:cover;display:none;">
+        <div id="home-about-placeholder" class="about-photo__placeholder">About Image</div>
+        <input type="file" id="home-about-file-input" accept=".png,.jpg,.jpeg,.webp" hidden>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW -->
+  <section class="section section--alt">
+    <div class="section__header" style="max-width:560px;">
+      <span class="section__eyebrow" data-edit-key="services-eyebrow">What We Do</span>
+      <h2 class="section__title" data-edit-key="services-title">Full-service design, from concept to completion.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1100px;">
+      <div style="padding:2rem 0;border-top:1px solid var(--line);">
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;font-weight:500;color:var(--ink);margin-bottom:0.75rem;" data-edit-key="svc1-title">Residential</h3>
+        <p style="font-size:0.9rem;color:var(--ink-dim);line-height:1.7;" data-edit-key="svc1-desc">Homes designed around how you live, from single rooms to complete transformations.</p>
+      </div>
+      <div style="padding:2rem 0;border-top:1px solid var(--line);">
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;font-weight:500;color:var(--ink);margin-bottom:0.75rem;" data-edit-key="svc2-title">Commercial</h3>
+        <p style="font-size:0.9rem;color:var(--ink-dim);line-height:1.7;" data-edit-key="svc2-desc">Workplaces and retail spaces that express your brand and inspire the people inside.</p>
+      </div>
+      <div style="padding:2rem 0;border-top:1px solid var(--line);">
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;font-weight:500;color:var(--ink);margin-bottom:0.75rem;" data-edit-key="svc3-title">Consultation</h3>
+        <p style="font-size:0.9rem;color:var(--ink-dim);line-height:1.7;" data-edit-key="svc3-desc">Expert guidance on materials, colours, and layout without a full engagement.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="text-align:center;padding-top:5rem;padding-bottom:5rem;">
+    <span class="section__eyebrow" style="display:block;margin-bottom:0.75rem;" data-edit-key="cta-eyebrow">Ready to Begin?</span>
+    <h2 style="font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:400;color:var(--ink);max-width:600px;margin:0 auto var(--space-4);" data-edit-key="cta-title">Let's create something beautiful together.</h2>
+    <a href="contact/" class="btn btn--accent">Get in Touch →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span class="site-footer__copy">© 2024 TEI Studio. All rights reserved.</span>
+    <nav class="site-footer__links">
+      <a href="portfolio/">Portfolio</a>
+      <a href="about/">About</a>
+      <a href="services/">Services</a>
+      <a href="contact/">Contact</a>
+    </nav>
+  </footer>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/60123456789" target="_blank" rel="noopener"
+     class="whatsapp-btn" data-whatsapp-btn aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+  <script type="module" src="js/editor.js"></script>
+</body>
+</html>

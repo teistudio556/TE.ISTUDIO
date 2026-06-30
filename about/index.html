@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — TEI Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/editor.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <div class="page-shell">
+
+    <!-- NAV -->
+    <nav class="site-nav">
+      <a href="../" class="site-nav__brand">
+        <span class="site-nav__logo-img">te.istudio</span>
+      </a>
+      <ul class="site-nav__links">
+        <li><a href="../">Home</a></li>
+        <li><a href="../about/" class="is-active">About</a></li>
+        <li><a href="../portfolio/">Portfolio</a></li>
+        <li><a href="../services/">Services</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <header class="page-hero">
+      <span class="page-hero__eyebrow">The Studio</span>
+      <h1 class="page-hero__title" data-edit-key="hero-title">About TEI Studio</h1>
+      <p class="page-hero__sub" data-edit-key="hero-sub">A boutique interior design studio built on the belief that beautiful spaces change how we feel and live.</p>
+    </header>
+
+    <!-- ABOUT CONTENT -->
+    <main class="page-content">
+      <div class="about-layout">
+
+        <!-- Photo -->
+        <div class="about-photo" id="about-photo-block">
+          <img id="about-photo-img" src="" alt="Designer" style="display:none;">
+          <div class="about-photo__placeholder">Upload Photo</div>
+          <input type="file" id="about-photo-input" accept=".png,.jpg,.jpeg,.webp" hidden>
+        </div>
+
+        <!-- Text sections -->
+        <div class="about-text-block">
+
+          <div class="about-section">
+            <span class="about-section__label" data-edit-key="story-label">Our Story</span>
+            <h2 class="about-section__title" data-edit-key="story-title">Rooted in Malaysian living.</h2>
+            <p class="about-section__text" data-edit-key="story-text">TEI Studio was founded with a simple conviction: that interior design should be deeply personal. We draw on Malaysia's rich culture of craft, material, and light to create spaces that feel rooted and real — never generic, never imposed.</p>
+          </div>
+
+          <hr class="rule">
+
+          <div class="about-section">
+            <span class="about-section__label" data-edit-key="approach-label">Our Approach</span>
+            <h2 class="about-section__title" data-edit-key="approach-title">We listen before we design.</h2>
+            <p class="about-section__text" data-edit-key="approach-text">Every project begins with conversation. We take time to understand how you move through a space, what you love, and what you need — then translate that into a design language that is uniquely yours. The result is always thoughtful, always functional, always beautiful.</p>
+          </div>
+
+          <hr class="rule">
+
+          <div class="about-section">
+            <span class="about-section__label" data-edit-key="values-label">What We Believe</span>
+            <h2 class="about-section__title" data-edit-key="values-title">Quiet confidence over trend.</h2>
+            <p class="about-section__text" data-edit-key="values-text">We design for longevity. That means choosing materials that age well, palettes that endure, and layouts that grow with you. We resist the impulse to follow fashion, preferring instead to follow the logic of each space and the life that will be lived in it.</p>
+          </div>
+
+          <hr class="rule">
+
+          <div class="about-section" style="padding-top:0.5rem;">
+            <div style="display:flex;gap:3rem;">
+              <div>
+                <p style="font-family:var(--font-display);font-size:2.5rem;font-weight:400;color:var(--accent);line-height:1;" data-edit-key="stat1-num">50+</p>
+                <p style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:0.4rem;" data-edit-key="stat1-label">Projects Completed</p>
+              </div>
+              <div>
+                <p style="font-family:var(--font-display);font-size:2.5rem;font-weight:400;color:var(--accent);line-height:1;" data-edit-key="stat2-num">8</p>
+                <p style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:0.4rem;" data-edit-key="stat2-label">Years of Experience</p>
+              </div>
+              <div>
+                <p style="font-family:var(--font-display);font-size:2.5rem;font-weight:400;color:var(--accent);line-height:1;" data-edit-key="stat3-num">100%</p>
+                <p style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:0.4rem;" data-edit-key="stat3-label">Client Satisfaction</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <span class="site-footer__copy">© 2024 TEI Studio. All rights reserved.</span>
+      <nav class="site-footer__links">
+        <a href="../">Home</a>
+        <a href="../portfolio/">Portfolio</a>
+        <a href="../services/">Services</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </footer>
+
+  </div>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/60123456789" target="_blank" rel="noopener"
+     class="whatsapp-btn" data-whatsapp-btn aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+  <script type="module" src="../js/editor.js"></script>
+</body>
+</html>
